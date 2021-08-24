@@ -1,7 +1,7 @@
-package appliation;
+package application;
 
-public class Appliation {
+public class application {
     public static void main(String args[]){
-        
+
     }
 }
