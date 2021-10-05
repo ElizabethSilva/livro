@@ -7,7 +7,6 @@
         <link href="css/default.css" rel="stylesheet" />
     </head>
     <body>
-        <h1>Olá Elizabeth!!!</h1>
-        <h2>Olá pessoal!!</h2>
+        <h1>Elizabeth !!!</h1>
     </body>
 </html>
