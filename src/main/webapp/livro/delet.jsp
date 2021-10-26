@@ -4,22 +4,20 @@
 <html>
     <head>
         <meta charset="utf-8" />
-
         <title>Deletar um Livro</title>
-      
     </head>
     <body>
-        <h1>Deletar um Livro</h1>
-        <hr>
-        <p>Tem certeza que deseja deletar o livro<em>"${livro.titulo}"</em>?</p>
-        <form action="/livro/delet" method="post">
-            <input type="hidden" name="id" value="${livro.id}"/>
-            
-            <label for="titulo">Título</label>
-            <input type="text" name="titulo"/>
+       <h1>Deletar um livro</h1>
+           <hr>
+<p>tem certeza que deseja deletar o livro<em>"${livro.titulo}"</em>?</p>
+           <form action="/livro/delete" method="post">
+            <input type="hidden" name="id"value="${livro.id}"/> 
+               
+              
+               <a href="/livro/list">Voltar</a>
+               <input type="submit" value="Deletar"/>
+           </form>
 
-            <a href="/livro/list">Voltar</a>
-            <input type="submit" value="Deletar/>
-        </form>
-        </body>
+        
+    </body>
 </html>
