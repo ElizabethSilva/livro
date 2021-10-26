@@ -9,6 +9,7 @@
       
     </head>
     <body>
+        <h1>Lista de livros!!! Elizabeth!</h1>
         <table>
             <tr>
                 <th>ID</th>
@@ -22,7 +23,5 @@
 
                 </c:forEach>
         </table>
-
-        <h1>Lista de livros!!! Matheus</h1>
     </body>
 </html>
