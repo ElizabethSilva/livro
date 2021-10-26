@@ -7,9 +7,9 @@
         <title>Deletar um Livro</title>
     </head>
     <body>
-       <h1>Deletar um livro</h1>
+        <h1>Deletar um livro</h1>
            <hr>
-<p>tem certeza que deseja deletar o livro<em>"${livro.titulo}"</em>?</p>
+        <p>tem certeza que deseja deletar o livro<em>"${livro.titulo}"</em>?</p>
            <form action="/livro/delete" method="post">
             <input type="hidden" name="id"value="${livro.id}"/> 
                
