@@ -12,8 +12,8 @@
 
         <body>
             <main class="container">
-                <h1>Lista de livros. Elizabeth!</h1>
-                <a href="/livro/insert" type="button" class="btn btn-outline-primary">Novo Livro</a>
+                <h2>Lista de livros, Elizabeth!</h2>
+                <a href="insert.jsp" type="button" class="btn btn-outline-primary">Novo Livro</a>
 
                 <table>
                     <tr>
@@ -24,6 +24,12 @@
                         <tr>
                             <td>${l.id}</td>
                             <td>${l.titulo}</td>
+                            <td>
+                                <a href="update.jsp" type="button" class="btn btn-outline-warning">Atualizar Livro</a>
+                            </td>
+                            <td>
+                                <a href="delete.jsp" type="button" class="btn btn-outline-danger">Excluir Livro</a>
+                            </td>
                         </tr>
 
                     </c:forEach>
