@@ -25,7 +25,7 @@
                             <td>${l.id}</td>
                             <td>${l.titulo}</td>
                             <td>
-                                <a href="update.jsp" type="button" class="btn btn-outline-warning">Atualizar Livro</a>
+                                <a href="update.jsp" type="button" class="btn btn-outline-info">Atualizar Livro</a>
                             </td>
                             <td>
                                 <a href="delete.jsp" type="button" class="btn btn-outline-danger">Excluir Livro</a>
