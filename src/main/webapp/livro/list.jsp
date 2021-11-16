@@ -25,10 +25,10 @@
                             <td>${l.id}</td>
                             <td>${l.titulo}</td>
                             <td>
-                                <a href="update.jsp" type="button" class="btn btn-outline-info">Atualizar Livro</a>
+                                <a href="livro/update.jsp" type="button" class="btn btn-outline-info">Atualizar Livro</a>
                             </td>
                             <td>
-                                <a href="delete.jsp" type="button" class="btn btn-outline-danger">Excluir Livro</a>
+                                <a href="livro/delete.jsp" type="button" class="btn btn-outline-danger">Excluir Livro</a>
                             </td>
                         </tr>
 
