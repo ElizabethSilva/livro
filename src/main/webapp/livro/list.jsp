@@ -13,7 +13,7 @@
 
         <main class="container">
             <h1>Livros!</h1>
-            <a href="/livro/insert" class="btn btn-primary">Novo livro</a>
+            <a href="/livro/insert" class="btn btn-outline-info">Novo livro</a>
         <table>
             <tr>
                 <th>ID</th>
@@ -24,9 +24,9 @@
                     <td>${l.id}</td>
                     <td>${l.titulo}</td>
                     <td>
-                        <a href="/livro/update/${l.id}" class="btn btn-primary">Atualizar livro</a>
+                        <a href="/livro/update/${l.id}" class="btn btn-outline-success">Atualizar livro</a>
                     </td>
-                    <td> <a href="/livro/delete/${l.id}" class="btn btn-danger">Deletar livro</a></td>
+                    <td> <a href="/livro/delete/${l.id}" class="btn btn-outline-danger">Deletar livro</a></td>
 
                 </tr>
 
