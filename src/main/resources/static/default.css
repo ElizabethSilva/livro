@@ -1,5 +1,4 @@
-/*Estiliza o corpo inteiro*/
-body {
-    font-family: sans-serif;
-    color: darkslateblue;
+body {/*Estiliza o corpo inteiro*/
+    font-family: sans-serif;/*definindo a fonte.*/
+    color: darkslateblue; /*definindo a cor.*/
 }
