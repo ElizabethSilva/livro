@@ -18,67 +18,67 @@ import org.springframework.ui.Model; //import do model do springframework
 public class LivroController { //declaração da classe LivroController
     @Autowired //anotação para injeção de dependências automáticas
     private LivroRepository livrosRepo; //criando o objeto privado livrosRepo do tipo LivroRepository
-    @RequestMapping("/list") //realiza o mapeamento, o controlador receberá requisições no endereço indicado ("/list").
-    public String list(Model model){ // Este metodo é responsavel por criando uma função pública list, com parâmetro model, que tem como função a listagem de todos os livro
+    @RequestMapping("/list") //realiza o mapeamento, o controlador receberá requisições no endereço indicado ("/list")
+    public String list(Model model){ // Este metodo é responsavel por criar uma função pública list, com parâmetro model, que tem como função a listagem de todos os livro
         model.addAttribute("livros", livrosRepo.findAll()); ///adicionando o atributo livros no modelo e preenchendo com todos livros do livrosRepo
-        return "list.jsp"; // retorna o arquivo list.jsp
+        return "list.jsp"; // retorna o arquivo list
         
     }
-    public String listar(){ //criacao de um novo metodo responsavel por criando uma função pública listar
-        return "livro/list.jsp"; //retorna o arquivo list.jsp que se encontra na pasta livro.
+    public String listar(){ //Este metodo é responsavel por criar uma função pública listar
+        return "livro/list.jsp"; //retorna o arquivo list que se encontra na pasta livro
     }
-    @RequestMapping("/insert") //realiza o mapeamento, o controlador receberá requisições no endereço indicado ("/insert").
-    public String formInsert(){ //criando função pública sem parâmetro para mostrar o caminho do insert.jsp.
-        return "insert.jsp"; //retorna o arquivo insert.jsp.
+    @RequestMapping("/insert") //realiza o mapeamento, o controlador receberá requisições no endereço indicado ("/insert")
+    public String formInsert(){ //Este metodo é responsavel  por criar função pública sem parâmetro para mostrar o caminho do insert
+        return "insert.jsp"; //retorna o arquivo insert
     
     }
-    @RequestMapping(value="/insert",method=RequestMethod.POST) //realiza o mapeamento, o controlador receberá requisições do tipo post no endereço indicado ("/insert").
-    public String saveInsert(@RequestParam("titulo")String titulo){ //criando função pública saveInsert, que tem como finalidade inserir um livro no livrosRepo.
+    @RequestMapping(value="/insert",method=RequestMethod.POST) //realiza o mapeamento, o controlador receberá requisições do tipo post no endereço indicado ("/insert")
+    public String saveInsert(@RequestParam("titulo")String titulo){ //criando função pública saveInsert, que tem como finalidade inserir um livro no livrosRepo
     
-        Livro livro=new Livro(); //criando método livro do tipo Livro.
-        livro.setTitulo(titulo); //configurando o título para livro.
-        livrosRepo.save(livro); //salvando o livro em livrosRepo.
-        return "redirect:/livro/list"; //redirecionando para o arquivo list.jsp que se encontra na pasta livro.
+        Livro livro=new Livro(); //criando método livro do tipo Livro
+        livro.setTitulo(titulo); //configurando o título para livro
+        livrosRepo.save(livro); //salvando o livro em livrosRepo
+        return "redirect:/livro/list"; //redirecionando para o arquivo list.jsp que se encontra na pasta livro
     
     }
-    @RequestMapping("/delete/{id}") //realiza o mapeamento, o controlador receberá requisições no endereço indicado ("/delete/{id}").
-    public String formDelete(Model model,@PathVariable int id){ //criando função pública formDelete, que recebe o id do livro como parâmetro, tem finalidade de fazer a confirmação das possíveis remoções de títulos do repositório.
-        Optional<Livro>livro=livrosRepo.findById(id); //realizando busca pelo id para verificar a existência do livro.
-        if (!livro.isPresent()) //se o livro não estiver presente.
-            return "redirect:/livro/list"; //redirecionando para o arquivo list.jsp que se encontra na pasta livro.
-         model.addAttribute("livro",livro.get()); //adiciona o atributo livro ao modelo e pega o livro.
+    @RequestMapping("/delete/{id}") //realiza o mapeamento, o controlador receberá requisições no endereço indicado ("/delete/{id}")
+    public String formDelete(Model model,@PathVariable int id){ //criando função pública formDelete, que recebe o id do livro como parâmetro, tem finalidade de fazer a confirmação das possíveis remoções de títulos do repositório
+        Optional<Livro>livro=livrosRepo.findById(id); //realizando busca pelo id para verificar a existência do livro
+        if (!livro.isPresent()) //se o livro não estiver presente
+            return "redirect:/livro/list"; //redirecionando para o arquivo list.jsp que se encontra na pasta livro
+         model.addAttribute("livro",livro.get()); //adiciona o atributo livro ao modelo e pega o livro
      
-        return "/livro/delete.jsp"; //redirecionando para o arquivo delete.jsp que se encontra na pasta livro.
+        return "/livro/delete.jsp"; //redirecionando para o arquivo delete.jsp que se encontra na pasta livro
         
     
     }
-    @RequestMapping(value = "/delete",method=RequestMethod.POST) //realiza o mapeamento, o controlador receberá requisições do tipo post no endereço indicado ("/delete").
-    public String confirmDelete(@RequestParam("id")int id){ //criando  função pública  confirmDelete() com o parâmetro id, que serve para deletar o livro do repositório.
-       livrosRepo.deleteById(id); //deleta o livro do repositório pelo id.
-            return "redirect:/livro/list"; //redirecionando para o arquivo list.jsp que se encontra na pasta livro.
+    @RequestMapping(value = "/delete",method=RequestMethod.POST) //realiza o mapeamento, o controlador receberá requisições do tipo post no endereço indicado ("/delete")
+    public String confirmDelete(@RequestParam("id")int id){ //criando  função pública  confirmDelete() com o parâmetro id, que serve para deletar o livro do repositório
+       livrosRepo.deleteById(id); //deleta o livro do repositório pelo id
+            return "redirect:/livro/list"; //redirecionando para o arquivo list.jsp que se encontra na pasta livro
          
     
     }
-    @RequestMapping("/update/{id}") //realiza o mapeamento, o controlador receberá requisições no endereço indicado ("/update/{id}").
-    public String formUpdate(Model model,@PathVariable int id){ //criando função pública formUpdate, que recebe o id do livro como parâmetro, tem finalidade de fazer a confirmação das possíveis atualizações de títulos do repositório.
-        Optional<Livro>livro=livrosRepo.findById(id); //realizando busca pelo id para verificar a existência do livro.
+    @RequestMapping("/update/{id}") //realiza o mapeamento, o controlador receberá requisições no endereço indicado ("/update/{id}")
+    public String formUpdate(Model model,@PathVariable int id){ //criando função pública formUpdate, que recebe o id do livro como parâmetro, tem finalidade de fazer a confirmação das possíveis atualizações de títulos do repositório
+        Optional<Livro>livro=livrosRepo.findById(id); //realizando busca pelo id para verificar a existência do livro
         if (!livro.isPresent()) //se o livro não estiver presente.
-            return "redirect:/livro/list"; //redirecionando para o arquivo list.jsp que se encontra na pasta livro.
-         model.addAttribute("livro",livro.get()); //adiciona o atributo livro ao modelo e pega o livro.
+            return "redirect:/livro/list"; //redirecionando para o arquivo list que se encontra na pasta livro
+         model.addAttribute("livro",livro.get()); //adiciona o atributo livro ao modelo e pega o livro
      
-        return "/livro/update.jsp"; //redirecionando para o arquivo update.jsp que se encontra na pasta livro.
+        return "/livro/update.jsp"; //redirecionando para o arquivo update que se encontra na pasta livro
         
     
     }
-    @RequestMapping(value = "/update",method=RequestMethod.POST) //realiza o mapeamento, o controlador receberá requisições do tipo post no endereço indicado ("/update").
-    public String saveUpdate(@RequestParam("titulo")String titulo,@RequestParam("id")int id){ //criando função pública saveUpdate() com os parâmetros titulo e id, que tem como finalidade atualizar os livros do repositório.
-        Optional<Livro>livro=livrosRepo.findById(id); //realizando busca pelo id para verificar a existência do livro.
-        if (!livro.isPresent()) //se o livro não estiver presente.
-            return "redirect:/livro/list"; //redirecionando para o arquivo list.jsp que se encontra na pasta livro.
-         livro.get().setTitulo(titulo); //se o livro existir, é realizada a alteração de dados.
-         livrosRepo.save(livro.get()); //salvando o livro em livrosRepo.
+    @RequestMapping(value = "/update",method=RequestMethod.POST) //realiza o mapeamento, o controlador receberá requisições do tipo post no endereço indicado ("/update")
+    public String saveUpdate(@RequestParam("titulo")String titulo,@RequestParam("id")int id){ //criando função pública saveUpdate() com os parâmetros titulo e id, que tem como finalidade atualizar os livros do repositório
+        Optional<Livro>livro=livrosRepo.findById(id); //realizando busca pelo id para verificar a existência do livro
+        if (!livro.isPresent()) //se o livro não estiver presente
+            return "redirect:/livro/list"; //redirecionando para o arquivo list, na pasta livro
+         livro.get().setTitulo(titulo); //se o livro existir, é realizada a alteração de dados
+         livrosRepo.save(livro.get()); //salvando o livro em livrosRepo
      
-         return "redirect:/livro/list"; //redirecionando para o arquivo list.jsp que se encontra na pasta livro.
+         return "redirect:/livro/list"; //redirecionando para o arquivo list, na pasta livro
         
          
     
